@@ -24,6 +24,5 @@ export const movieList = [
     'oliver twist',
     'the kid',
     'home',
-    'hell boy',
     'bulletproof monk'
 ]

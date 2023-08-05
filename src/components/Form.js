@@ -6,7 +6,6 @@ export default function  Form (props){
     })
 
     const handleChange = (event) => {
-        //use the event object to detect key and value to update
         setFormData({ ...formData, [event.target.name]: event.target.value })
     }
     
@@ -17,18 +16,19 @@ export default function  Form (props){
 
     return(
         <div>
-            <h2>The Form Component</h2>
             <form onSubmit={handleSubmit}>
-                <input 
-                    type="text"
-                    name="searchterm"
-                    onChange={handleChange}
-                    value={formData.searchterm}
-                />
-                <input type="submit" value="submit"/>
+                <div>              
+                    <input 
+                        type="text"
+                        name="searchterm"
+                        onChange={handleChange}
+                        value={formData.searchterm}
+                    />
+                    <input type="submit" value="Search"/>
+                </div>
 
             </form>
             
         </div>
     )
-  };
+};

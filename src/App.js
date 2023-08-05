@@ -2,6 +2,7 @@ import {useState, useEffect} from "react";
 import { movieList } from "./utils.js/movieList";
 import MovieDisplay from "./components/MovieDisplay";
 import Form from "./components/Form";
+import './App.css';
 
 
 export default function App() {
@@ -42,12 +43,12 @@ export default function App() {
       const randomMovie = movieList[movieIndx]
 
       if(searchTerm === '') {
-
         const response = await fetch(
           `http://www.omdbapi.com/?apikey=${apiKey}&t=${randomMovie}`
         );
 
         const data = await response.json()
+        console.log(data)
         setMovie(data)
 
       } else {
@@ -62,9 +63,16 @@ export default function App() {
     }
   }
   return (
-    <div className="App">
-      <Form moviesearch={getMovie}/>
-      <MovieDisplay movie={movie}/>
-    </div>
+    <div className="container mx-auto">
+      <div className="grid grid-cols-4">
+        <div></div>
+        <div className="bg-cyan-900 col-span-2">
+          <Form moviesearch={getMovie}/>
+          <MovieDisplay movie={movie}/>
+        </div>
+        <div></div>
+      </div>
+      
+    </div> 
   );
 }
